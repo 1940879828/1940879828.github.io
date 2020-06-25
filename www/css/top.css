@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+/* tabbar相关样式 */
+#top .tabbar {
+	height: 40px;
+	line-height: 40px;
+	/*行高可继承*/
+	border-bottom: 1px solid #ccc;
+}
+
+#top .tabbar .category {
+	float: left;
+	width: 164px;
+	background: linear-gradient(90deg, red, #ff3264);
+	color: #FFFFFF;
+	font-size: 15px;
+}
+#top .tabbar .category
+.lineicon{
+	margin-left: 18px;
+}
+
+#top .tabbar .category
+span {
+	position: relative;
+	margin-left: 20px;
+}
+
+#top .tabbar .categories{
+	position: absolute;
+	z-index: 1;
+	width: 164px;
+	background: linear-gradient(90deg, red, #ff3264);
+}
+
+#top .tabbar .categories li{
+	height: 42px;
+	padding: 0 3px 0 2px;
+}
+
+#top .tabbar .categories li a{
+	display: block;
+	height:41px;
+	line-height: 41px;
+	border-top: 1px solid #ff5160;
+}
+
+#top .tabbar .categories li a:hover{
+	background-color: #FFFFFF;
+}
+#top .tabbar .categories li a:hover span{
+	color: #FF1E32;
+}
+
+#top .tabbar .categories li a:hover img{
+	display: none;
+}
+#top .tabbar .categories li a:hover img.active{
+	display: inline; 
+}
+
+#top .tabbar .categories li img{
+	position: relative;
+	top: -2px;
+	margin-left: 18px;
+}
+
+#top .tabbar .categories li img.active{
+	display: none;
+}
+
+#top .tabbar .categories li span{
+	color:#FFFFFF;
+}
+
+#top .tabbar .list {
+	float: left;
+	margin-left: 20px;
+}
+
+#top .tabbar .list li {
+	float: left;
+	margin-left: 10px;
+}
+
+#top .tabbar .list a {
+	display: inline-block;
+	line-height: 40px;
+	padding: 0 12px;
+	font-size: 15px;
+	font-weight: 700;
+}
+#top .tabbar .list a:hover{
+	color: #FF1E32;
+}
+#top .tabbar .list a.active{
+	color: #FF1E32;
+}
+
+/*轮播图相关样式*/
+#top .banner{
+	position: relative;
+	overflow: hidden;
+	height: 505px;
+}
+#top .banner .swiper img{
+	transition: opacity 1s;
+	opacity: 0;
+	z-index: -10;
+	position: absolute;
+	/* left: 50%;
+	transform:translate(-50%,0); */
+	top: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	outline: 1px solid red;
+}
+#top .banner .swiper img.on{
+	transition: opacity 1s;
+	opacity: 1;
+}
+
+#top .banner .swiper{
+	height: 505px;
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+#top .banner:hover .control{
+	display: block;
+}
+
+#top .banner .control{
+	display: none;/**/
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 40%;
+	width: 1100px;
+	height: 68px;
+	z-index: 100;
+}
+#top .banner .control i{
+	width: 34px;
+	height: 68px;
+	background-image: url("https://kaola-haitao.oss.kaolacdn.com/fd1d7d20-1f64-4c35-a49a-a73f7d20b73e_979_797.png");
+}
+#top .banner .control
+.prev {
+	z-index: 10;
+	float: left;
+	background-position: -625px -68px;
+	margin-left: 170px;
+}
+
+#top .banner .control
+.prev:hover {
+	background-position: -625px -153px;
+}
+
+#top .banner .control
+.next:hover {
+	background-position: -670px -153px;
+}
+
+#top .banner .control
+.next {
+	z-index: 10;
+	float: right;
+	background-position: -670px -67px;
+}
+
+#top .banner .swiper .dots .dot{
+	position: absolute;
+	bottom: 20px;
+	left: 210px;
+}
+
+#top .banner .swiper .dots{
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 1100px;
+
+}
+
+#top .banner .swiper .dots i{
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background-color: #fff;
+	margin-right:15px ;
+}
+
+#top .banner .swiper .dots i:hover{
+	background-color: #FF1E32;
+}
+
+#top .banner .swiper .dots i.active{
+	background-color: #FF1E32;
+}
+/*轮播图下面的服务相关样式*/
+#top .banner .service {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	overflow: hidden;
+	
+	height: 45px;
+	/* background-color: rgba(0,0,0,.6); */
+}
+
+#top .banner .service .blur{
+	position: absolute;
+	z-index: -1;
+	left: 0;right: 0;bottom: 0;top: 0;
+	background-color: rgba(0,0,0,.3);
+	/* background:url("https://kaola-haitao.oss.kaolacdn.com/afa01d77-cbd2-49ec-943c-8f73e97b7e47T2004211643_1920_506.jpg?x-oss-process=image/resize,w_1920/quality,q_90") center bottom; */
+	filter: blur(20px);
+}
+
+#top .banner .service ul{
+	height: 45px;
+	line-height: 45px;
+}
+#top .banner .service ul li {
+	float: left;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-right: 40px;
+}
+#top .banner .service ul li a{
+	float: left;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-right: 10px;
+}
+#top .banner .service a:hover{
+	text-decoration: underline;
+}
+#top .banner .service i{
+	vertical-align: middle;
+	display: inline-block;
+	height: 22px;
+	width: 24px;
+	background: url("//haitao.nos.netease.com/1cet9p5fv45_40_40.png?imageView&thumbnail=20x20&quality=100") no-repeat;
+}
+#top .banner .service span,#top .banner .service span a{
+	float: right;
+	font-size: 12px;
+	color: #FFFFFF;
+}

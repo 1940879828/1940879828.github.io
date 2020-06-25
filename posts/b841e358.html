@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#(^o^)'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>php和服务器入门 - 竹青虫的博客</title>
+  
+    <meta name="keywords" content="php">
+  
+  
+    <meta name="description" content="详细内容">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://img.vim-cn.com/59/5cffed00e55d901ee9869e2fd26727f80d2474">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            竹青虫 <b><sup style='color:#3AA757'>(^o^)</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/www/index.html
+                  
+                  
+                  
+                    id="wwwindexhtml"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>项目
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/www/index.html
+                  
+                  
+                  
+                    id="wwwindexhtml"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>项目
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/b841e358.html">
+      php和服务器入门
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://1940879828.github.io" rel="nofollow">
+    <img src="https://img.vim-cn.com/db/f0380844e4986b923b4907715d585eafec1283.jpg">
+    <p>竹青虫</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 5, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>详细内容</p>
+<a id="more"></a>
+
+<h2 id="服务器认识"><a href="#服务器认识" class="headerlink" title="服务器认识"></a>服务器认识</h2><p>软件架构</p>
+<ul>
+<li>C/S (客户端-&gt;服务端)</li>
+<li>B/S (浏览器-&gt;服务端)<ul>
+<li>客户端：资源受益方</li>
+<li>服务端：资源提供方</li>
+</ul>
+</li>
+</ul>
+<p>开发网站的技术：php、jsp、asp、ruby、python、nodejs、c/c++等</p>
+<p>集成开发环境:</p>
+<ul>
+<li><p>WAMP架构：windows+apache+mysql+php</p>
+</li>
+<li><p>LAMP架构：Linux+apache+mysql+php</p>
+</li>
+<li><p>LNMP架构：Linux+nginx+mysql+php</p>
+<ul>
+<li>apache：对外开放你的某一个磁盘</li>
+</ul>
+</li>
+</ul>
+<p>PHPnow：apache+mysql+php</p>
+<h2 id="PHP简介"><a href="#PHP简介" class="headerlink" title="PHP简介"></a>PHP简介</h2><ul>
+<li>特点：<ol>
+<li>PHP（Hypertext Preprocessor）超文本预处理器：是一种通用开源脚本语言</li>
+<li>PHP脚本在服务器上运行，文件后缀名为.php</li>
+<li>PHP可以在不同平台上运行（windows、Linux、Unix、Mac等）</li>
+<li>PHP与目前几乎所有的正在被使用的服务器兼容(Apache、IIS等)</li>
+<li>PHP提供了广泛的数据库支持</li>
+<li>PHP免费，官网（<a href="http://www.php.net）" target="_blank" rel="noopener">www.php.net）</a></li>
+<li>PHP易于学习且运行高效</li>
+<li>严格语法</li>
+</ol>
+</li>
+</ul>
+<h2 id="一些PHP的简单的语法"><a href="#一些PHP的简单的语法" class="headerlink" title="一些PHP的简单的语法"></a>一些PHP的简单的语法</h2><h3 id="1-php输出"><a href="#1-php输出" class="headerlink" title="1.php输出"></a>1.php输出</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">'content-type:text/html;charset="utf-8'</span>);<span class="comment">//头文件声明编码格式</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        php输出函数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//往页面写入内容 标签会被解析 不会覆盖之前的内容</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;h1&gt;hello world&lt;/h1&gt;"</span>;</span><br><span class="line">    print_r(<span class="string">"&lt;h1&gt;hello world&lt;/h1&gt;"</span>);</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"数字是：$x&lt;br&gt;"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//类似于console.log() 一般用于测试程序</span></span><br><span class="line">    var_dump(<span class="number">100</span>);<span class="comment">// int(100) </span></span><br><span class="line">    var_dump(<span class="string">"hello"</span>);<span class="comment">// string(5) "hello"</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-变量和数据类型"><a href="#2-变量和数据类型" class="headerlink" title="2.变量和数据类型"></a>2.变量和数据类型</h3><ul>
+<li><p>变量定义规则</p>
+<ul>
+<li>变量以$符开始，后面跟变量名称</li>
+<li>变量名必须以字母或学习开始</li>
+<li>变量名只能包含字母数字下划线</li>
+<li>变量名不能有空格</li>
+<li>变量名区分大小写</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">'content-type:text/html;charset="utf-8'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        声明变量</span></span><br><span class="line"><span class="comment">         - 弱引用 赋值什么类型就是什么类型数据</span></span><br><span class="line"><span class="comment">        数据类型：</span></span><br><span class="line"><span class="comment">         字符串String 整形Integer 浮点型Float 布尔Boolean</span></span><br><span class="line"><span class="comment">         数组Array 对象Object 空的NULL</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    $username=<span class="string">"钢铁侠"</span>;</span><br><span class="line">    $age=<span class="number">18</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        字符串拼接用 .</span></span><br><span class="line"><span class="comment">        或者用占位符 &#123;变量/表达式&#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"我是"</span>.$username.<span class="string">"今年"</span>.$age.<span class="string">"岁"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"我是&#123;$username&#125;今年&#123;$age&#125;岁"</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-条件语句"><a href="#3-条件语句" class="headerlink" title="3.条件语句"></a>3.条件语句</h3><h4 id="3-1-分支语句"><a href="#3-1-分支语句" class="headerlink" title="3.1.分支语句"></a>3.1.分支语句</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">'content-type:text/html;charset="utf-8'</span>);   </span><br><span class="line">    $isYes=<span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">if</span>($isYes)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"是"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"否"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-switch语句"><a href="#3-2-switch语句" class="headerlink" title="3.2.switch语句"></a>3.2.switch语句</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $num =<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">switch</span>($num)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"数字1"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"数字2"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"输入错误"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-循环"><a href="#3-3-循环" class="headerlink" title="3.3.循环"></a>3.3.循环</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">for</span>($x=<span class="number">0</span>;$x&lt;=<span class="number">10</span>;$x++)&#123;</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"数字是：$x&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-函数"><a href="#4-函数" class="headerlink" title="4.函数"></a>4.函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">printHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"hello world&lt;br/&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    printHello();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-数组"><a href="#5-数组" class="headerlink" title="5.数组"></a>5.数组</h3><ul>
+<li><p>PHP有三种类型的数组</p>
+<ul>
+<li><p>数值/索引数组：下标是数字</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">'content-type:text/html;charset="utf-8'</span>);   </span><br><span class="line">    $cars=<span class="keyword">array</span>(<span class="string">"大众"</span>,<span class="string">"别克"</span>,<span class="string">"奔驰"</span>);</span><br><span class="line">    var_dump($cars);</span><br><span class="line">    <span class="comment">//array(3) &#123; [0]=&gt; string(6) "大众" [1]=&gt; string(6) "别克" [2]=&gt; string(6) "奔驰" &#125; 别克</span></span><br><span class="line">    <span class="keyword">echo</span> $cars[<span class="number">1</span>];<span class="comment">//别克</span></span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($cars);$i++)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"下标：&#123;$i&#125;,数据：&#123;$cars[$i]&#125;&lt;br/&gt;"</span>;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        下标：0,数据：大众</span></span><br><span class="line"><span class="comment">        下标：1,数据：别克</span></span><br><span class="line"><span class="comment">        下标：2,数据：奔驰</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关联数组：带指定键的数组，每个键关联一个值（类似map）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">'content-type:text/html;charset="utf-8'</span>);   </span><br><span class="line">    $arr=<span class="keyword">array</span>(<span class="string">"王五"</span>=&gt;<span class="string">"打渔"</span>,<span class="string">"张三"</span>=&gt;<span class="string">"种地"</span>,<span class="string">"李四"</span>=&gt;<span class="string">"打猎"</span>);</span><br><span class="line">    var_dump($arr);</span><br><span class="line">    <span class="comment">//array(2) &#123; ["王五"]=&gt; string(6) "打渔" ["李四"]=&gt; string(6) "打猎" &#125;</span></span><br><span class="line">    <span class="keyword">foreach</span>($arr <span class="keyword">as</span> $key =&gt; $value)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"下标：&#123;$key&#125;,数据：&#123;$value&#125;&lt;br/&gt;"</span>;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        下标：王五,数据：打渔</span></span><br><span class="line"><span class="comment">        下标：张三,数据：种地</span></span><br><span class="line"><span class="comment">        下标：李四,数据：打猎</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多维数组：索引数组和关联数组结合</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">'content-type:text/html;charset="utf-8'</span>);   </span><br><span class="line">    $arr = <span class="keyword">array</span>(</span><br><span class="line">        <span class="keyword">array</span>(<span class="string">"name"</span>=&gt;<span class="string">"小白"</span>,<span class="string">"英语"</span>=&gt;<span class="number">100</span>,<span class="string">"数学"</span>=&gt;<span class="number">50</span>),</span><br><span class="line">        <span class="keyword">array</span>(<span class="string">"name"</span>=&gt;<span class="string">"小花"</span>,<span class="string">"英语"</span>=&gt;<span class="number">60</span>,<span class="string">"数学"</span>=&gt;<span class="number">100</span>),</span><br><span class="line">        <span class="keyword">array</span>(<span class="string">"name"</span>=&gt;<span class="string">"小红"</span>,<span class="string">"英语"</span>=&gt;<span class="number">100</span>,<span class="string">"数学"</span>=&gt;<span class="number">100</span>)</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($arr);$i++)&#123;</span><br><span class="line">        var_dump($arr[$i].<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">             string(10) "Array</span></span><br><span class="line"><span class="comment">             " string(10) "Array</span></span><br><span class="line"><span class="comment">             " string(10) "Array</span></span><br><span class="line"><span class="comment">             "</span></span><br><span class="line"><span class="comment">        */</span> </span><br><span class="line">        <span class="keyword">echo</span> $arr[<span class="number">2</span>][<span class="string">"数学"</span>];<span class="comment">//100</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局数组  </p>
+<ul>
+<li>$_GET：接收通过get提交过来的所有数据</li>
+<li>$_POST：接收通过post提交过来的所有数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-数组函数"><a href="#6-数组函数" class="headerlink" title="6.数组函数"></a>6.数组函数</h3><ul>
+<li>array_keys()：返回数组中所有键名</li>
+<li>array_pop()：删除数组中最后一个元素（出栈）</li>
+<li>array_push()：将一个或多个元素插入数组的末尾（入栈）</li>
+<li>array_rand()：从数组中随机选出一个或多个元素，返回键名</li>
+<li>array_shift()：删除数组中第一个元素并返回删除元素的值</li>
+<li>count()：返回数组中元素的数目</li>
+<li>in_array()：检查数组中是否存在指定的值</li>
+</ul>
+<h3 id="7-字符串函数"><a href="#7-字符串函数" class="headerlink" title="7.字符串函数"></a>7.字符串函数</h3><ul>
+<li>explode()：字符串打散为数组</li>
+<li>implode()：返回一个由数组元素组合成的字符串</li>
+<li>join() implode()：合并成数组</li>
+<li>trim()：去掉字符串两边的字符</li>
+<li>md5()：计算字符串的MD5散列</li>
+<li>str_replace()：替换字符串中的一些字符(大小写敏感)</li>
+</ul>
+<h3 id="8-事件函数"><a href="#8-事件函数" class="headerlink" title="8.事件函数"></a>8.事件函数</h3><ul>
+<li>date()：获取当前的日期</li>
+<li>dote(‘Y-m-d H:i:s’)：获取当前日期，格式化</li>
+<li>time()：获取时间戳</li>
+<li>strtotime(‘2017-01-01 0:0:0’)：字符串转换成时间戳</li>
+<li>getdate()：返回某个时间戳或者当前本地的日期/时间的日期/时间信息</li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://1940879828.github.io/posts/b841e358.html>https://1940879828.github.io/posts/b841e358.html</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://img.vim-cn.com/76/3eec6a49d047ee9fdf0122f5085229862aca96.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-05T16:54:14+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 5, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/php/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>php</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://1940879828.github.io/posts/b841e358.html&title=php和服务器入门 - 竹青虫的博客&summary=详细内容"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://1940879828.github.io/posts/b841e358.html&title=php和服务器入门 - 竹青虫的博客&summary=详细内容"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://1940879828.github.io/posts/b841e358.html&title=php和服务器入门 - 竹青虫的博客&summary=详细内容"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/d556478e.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>HTML5画布Canvas</p>
+                <p class='content'>详细内容
+
+
+画布Canvas颜色、样式和阴影
+
+
+属性
+描述
+
+
+
+fillStyle
+设置或返回用于填充绘画的颜色、渐变或模式
+
+
+strokeStyle
+设置或返回用于笔触的颜色、渐变或模...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/7211.html'>
+                <p class='title'>JavaScript入门(下)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>JavaScript入门（下）详细内容
+
+
+七. JavaScript-对象1. 认识对象
+发展历史
+
+汇编语言：
+
+汇编、C语言    面向过程语言
+Java、C++、javaScript、O...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'php和服务器入门',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器认识"><span class="toc-text">服务器认识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP简介"><span class="toc-text">PHP简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些PHP的简单的语法"><span class="toc-text">一些PHP的简单的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-php输出"><span class="toc-text">1.php输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-变量和数据类型"><span class="toc-text">2.变量和数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-条件语句"><span class="toc-text">3.条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-分支语句"><span class="toc-text">3.1.分支语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-switch语句"><span class="toc-text">3.2.switch语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-循环"><span class="toc-text">3.3.循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-函数"><span class="toc-text">4.函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-数组"><span class="toc-text">5.数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-数组函数"><span class="toc-text">6.数组函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-字符串函数"><span class="toc-text">7.字符串函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-事件函数"><span class="toc-text">8.事件函数</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='true'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="mailto:me@1940879828@qq.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/1940879828"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">竹青虫</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/67239FBB-E15D-4F4F-8EE8-0F1C9F3C4E7C.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/landscape/10A0FCE5-36A1-4AD0-8CF0-019259A89E03.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B951AE18-D431-417F-B3FE-A382403FF21B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/landscape/AEB33F9D-7294-4CF1-B8C5-3020748A9D45.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/2884F904-F1F3-479E-AE27-5EBC291B63B0.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/landscape/250662D4-5A21-4AAA-BB63-CD25CF97CFF1.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/landscape/298468D7-E388-44A8-8CC5-8213BDC33CED.jpeg"];
+        if ('false' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

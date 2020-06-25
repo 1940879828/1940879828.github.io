@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/*样式重置*/
+article, aside,blockquote,body,button,code,dd,details,div,dl,
+dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,
+header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,
+td,textarea,th,ul{
+	padding: 0;
+	margin: 0;
+}
+ul,ol,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#333;
+}
+i,em{
+	font-style: normal;
+}
+input,textarea,button,select,a{
+	outline:none; /*绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。*/
+	border: none;
+}
+table{
+	border-collapse: collapse;/*如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。*/
+	border-spacing: 0;/*属性设置相邻单元格的边框间的距离（仅用于“边框分离”模式）。*/
+}
+img{
+	border: none;
+	vertical-align: middle;/*元素的垂直对齐方式。*/
+}

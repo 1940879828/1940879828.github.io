@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+/*热门品牌相关样式*/
+#main .brand{
+    margin-top: 100px;
+}
+#main .brand .left{
+    float: left;
+    width: 219px;
+    height: 355px;
+    border-right: 1px solid #eaeaea;
+    position: relative;
+    background-color: #333;
+}
+
+#main .brand .left img{
+    width:219px;
+    height: 219px;
+
+}
+#main .brand .left:hover .control{
+    display: block;
+}
+#main .brand .left a .control{
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 28%;
+	width: 219px;
+    height: 25px;
+}
+#main .brand .left .control i{
+    text-align: center;
+    line-height: 25px;
+    width: 22px;
+    height: 25px;
+    color: #fff;
+    background-color: black;
+    opacity: 0.2;
+}
+#main .brand .left .control i:hover{
+    opacity: 0.5;
+}
+#main .brand .left .control .prev{
+    float: left;
+}
+#main .brand .left .control .next{
+    float: right;
+}
+
+#main .brand .left .progress{
+    height: 2px;
+    width: 73px;
+    background-color: #ff1e32;
+}
+
+#main .brand .left .info{
+    color: #fff;
+    text-align: center;
+}
+
+#main .brand .left .info span{
+    display: block;
+}
+
+#main .brand .left .info .title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+#main .brand .left .info .desc{
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+#main .brand .list{
+    float: left;
+    width: 880px;
+    height: 354px;
+    border-top: 1px solid #eaeaea;
+}
+
+#main .brand .list li{
+    position: relative;
+    float: left;
+    width: 219px;
+    height: 176px;
+    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    background-color: #fff;
+
+    text-align: center;
+}
+
+#main .brand .list li:hover .active{
+    opacity: 1;
+
+}
+
+#main .brand .list li:hover .desc{
+    opacity: 0;
+}
+
+#main .brand .list li:hover img{
+    transform: scale(.7);
+}
+
+#main .brand .list li img{
+    transform-origin: top;
+    margin-top: 12px;
+    transition: transform 0.2s ease-out;
+}
+#main .brand .list li .desc{
+    opacity:1;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+
+    transition: opacity 0.4s ease;
+}
+
+#main .brand .list li .active{
+    opacity: 0;/*支持动画*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transition: opacity 0.4s ease;
+}
+
+#main .brand .list li .focus{
+    position: absolute;
+    font-size: 12px;
+    top: 10px;
+    left: 10px;
+    width: 52px;
+    height: 20px;
+    color: #999;
+    line-height: 20px;
+    border: 1px solid #999;
+    border-radius: 10px;
+}
+
+#main .brand .list li .focus:hover{
+    background-color: #eaeaea;
+}
+
+#main .brand .list li .info{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 12px;
+}
+#main .brand .list li .info a:hover{
+    background-color: #fff4f5;
+}
+
+#main .brand .list li .info a{
+    display: inline-block;
+    width: 76px;
+    height: 32px;
+    line-height: 32px;
+    border: 2px solid #ff1e32;
+    border-radius: 18px;
+    font-size: 14px;
+    color: #ff1e32;
+    margin-top: 5px;
+}
