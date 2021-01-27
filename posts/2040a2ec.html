@@ -431,9 +431,368 @@
 <li><strong>模块</strong> 和 <strong>打包</strong></li>
 </ul>
 <p><img src="https://img.vim-cn.com/bd/7a21db9717a896b097a18bb39847b862153b2f.png" alt="1"></p>
+<p>我们通过种种技术开发的应用程序不能直接放到服务器，而是要经过一些工具进行打包，给他做一些转化，生成一些浏览器更容易执行的代码，让浏览器去执行。Webpack就是这样的打包工具。</p>
+<p>还有一些其他的打包工具：grunt/guip/rollup</p>
+</li>
+<li><p>webpack中<strong>模块</strong>化概念：</p>
+<ul>
+<li>在ES6之前，我们想要进行模块化开发，就必须借助于其他的工具，让我们可以进行模块化开发。</li>
+<li>并且在通过模块化开发完成了项目后，还需要处理模块间各种依赖，并且将其进行整合打包。</li>
+<li>而webpack其中一个核心就是让我们可以进行模块化开发，并且会帮助我们处理模块间的依赖关系。</li>
+<li>不仅JavaScript文件，CSS、图片、json文件等在webpack中都可以被当做模块来使用</li>
+</ul>
+</li>
+<li><p><strong>打包</strong>：</p>
+<ul>
+<li>就是将webpack中的各种资源模块进行打包合并成一个或多个包(Bundle)。</li>
+<li>并且在打包过程中，还可以对资源进行处理，比如压缩图片，将scss转成css，将ES6语法转成ES5语法，将TypeScript转成JavaScript等等操作</li>
+<li>但打包操作似乎grunt/gulp也可以帮助我们完成，他们有什么不同？</li>
+</ul>
+</li>
+<li><p>webpack和grunt/gulp的对比</p>
+<ul>
+<li>grunt/gulp的核心是Task<ul>
+<li>我们可以配置一系列task，并且定义task要处理的事务(例如ES6、ts转化，图片压缩，scss转css)</li>
+<li>之后让grunt/gulp来依次执行这些task，而且让整个流程自动化。</li>
+<li>所以grunt/gulp也被称为前端自动化任务管理工具</li>
+</ul>
+</li>
+<li>什么情况用grunt/gulp？<ul>
+<li>工程模块依赖简单，甚至没有模块化概念</li>
+<li>只需简单合并压缩</li>
+<li>但是如果整个项目使用了模块化管理，而且相互依赖强，我们就使用更加强大的webpack</li>
+</ul>
 </li>
 </ul>
-<h3 id="二-webpack的安装"><a href="#二-webpack的安装" class="headerlink" title="二.webpack的安装"></a>二.webpack的安装</h3><h3 id="三-webpack的起步"><a href="#三-webpack的起步" class="headerlink" title="三.webpack的起步"></a>三.webpack的起步</h3><h3 id="四-webpack的配置"><a href="#四-webpack的配置" class="headerlink" title="四.webpack的配置"></a>四.webpack的配置</h3><h3 id="五-loader的使用"><a href="#五-loader的使用" class="headerlink" title="五.loader的使用"></a>五.loader的使用</h3><h3 id="六-webpack中配置Vue"><a href="#六-webpack中配置Vue" class="headerlink" title="六.webpack中配置Vue"></a>六.webpack中配置Vue</h3><h3 id="七-plugin的使用"><a href="#七-plugin的使用" class="headerlink" title="七.plugin的使用"></a>七.plugin的使用</h3><h3 id="八-搭建本地服务器"><a href="#八-搭建本地服务器" class="headerlink" title="八.搭建本地服务器"></a>八.搭建本地服务器</h3>
+</li>
+<li><p>grunt/gulp更加强调前端流程自动化，模块化不是他的核心</p>
+</li>
+<li><p>webpack更加强调模块化开发管理，文件压缩合并预处理是附带功能</p>
+</li>
+</ul>
+<h3 id="二-webpack的安装"><a href="#二-webpack的安装" class="headerlink" title="二.webpack的安装"></a>二.webpack的安装</h3><ul>
+<li><p>webpack依赖：webpack依赖Node.js。</p>
+</li>
+<li><p>全局安装webpack（这里安装3.6.0，vue cli2依赖该版本）</p>
+<p><code>npm install webpack@3.6.0 -g</code></p>
+</li>
+<li><p>局部安装webpack</p>
+<ul>
+<li><p>–save-dev 是开发时依赖，项目打包后不需要继续使用的</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 对应目录</span><br><span class="line">npm install webpack@<span class="number">3</span>.<span class="number">6</span>.<span class="number">0</span> --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>为什么全局安装后，还需局部安装</p>
+<ul>
+<li>当在package.json中定义了scripts时，其中包含webpack命令，那么使用的是局部webpack</li>
+</ul>
+</li>
+</ul>
+<h3 id="三-webpack的基本使用过程"><a href="#三-webpack的基本使用过程" class="headerlink" title="三.webpack的基本使用过程"></a>三.webpack的基本使用过程</h3><p>打包命令：<code>webpack ./src/main.js ./dist/bundle.js</code></p>
+<h3 id="四-webpack的配置"><a href="#四-webpack的配置" class="headerlink" title="四.webpack的配置"></a>四.webpack的配置</h3><h4 id="1-配置package-json和webpack-config-js"><a href="#1-配置package-json和webpack-config-js" class="headerlink" title="1.配置package.json和webpack.config.js"></a>1.配置package.json和webpack.config.js</h4><ul>
+<li><p>将入口和出口放到配置文件：</p>
+<ul>
+<li><p>项目根目录创建webpack.config.js文件</p>
+</li>
+<li><p>根目录输入node初始化命令：<code>npm init</code></p>
+<ul>
+<li>改个名，main改一下</li>
+</ul>
+</li>
+<li><pre><code class="javascript"><span class="keyword">const</span> path=<span class="built_in">require</span>(<span class="string">'path'</span>);
+<span class="built_in">module</span>.exports = {
+    entry: <span class="string">'./src/main.js'</span>,
+    output: {
+        <span class="comment">//拼接绝对路径 </span>
+        path: path.resolve(__dirname,<span class="string">'dist'</span>),
+        filename: <span class="string">'bundle.js'</span>
+    }
+};
+&lt;!--￼<span class="number">1</span>--&gt;</code></pre>
+</li>
+<li><p>映射完打包命令变为：<code>npm run build</code></p>
+</li>
+<li><p>优点：优先使用本地webpack</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="五-loader的使用"><a href="#五-loader的使用" class="headerlink" title="五.loader的使用"></a>五.loader的使用</h3><h4 id="什么是loader？"><a href="#什么是loader？" class="headerlink" title="什么是loader？"></a>什么是loader？</h4><ul>
+<li>loader是webpack中一个非常核心的概念。</li>
+<li>webpack用来做什么呢？<ul>
+<li>在上面，我们主要是用webpack来处理js代码，并处理js现关依赖。</li>
+<li>但是开发当中我们不仅仅需要有基本的js代码处理，我们也需要处理css、图片、ES6转化ES5等等。</li>
+<li>对于webpack本体来说，对于这些转化是不支持的。</li>
+<li>我们可以通过给webpack扩展对应的loader来实现这些功能</li>
+</ul>
+</li>
+<li>loader使用过程：<ul>
+<li>步骤一：通过npm安装需要使用的loader</li>
+<li>步骤二：在webpack.config.js中的module关键字下进行配置</li>
+</ul>
+</li>
+<li>大部分loader我们都可以在webpack的官网</li>
+</ul>
+<h4 id="css文件处理-准备工作"><a href="#css文件处理-准备工作" class="headerlink" title="css文件处理-准备工作"></a>css文件处理-准备工作</h4><ul>
+<li><p><code>style-loader</code>与<code>css-loader</code></p>
+</li>
+<li><p>文档链接：<a href="https://v4.webpack.docschina.org/loaders/css-loader" target="_blank" rel="noopener">https://v4.webpack.docschina.org/loaders/css-loader</a></p>
+</li>
+<li><p>安装style-loader：<code>npm install style-loader --save-dev</code></p>
+</li>
+<li><p>安装css-loader: <code>npm install --save-dev css-loader</code></p>
+</li>
+<li><p><strong>webpack.config.js</strong>配置：</p>
+</li>
+<li><pre><code class="javascript"><span class="built_in">module</span>.exports = {
+  <span class="built_in">module</span>: {
+    rules: [
+      {
+        test: <span class="regexp">/\.css$/</span>,
+          <span class="comment">//css-loader只负责将css文件进行加载</span>
+          <span class="comment">//style-loader负责将样式添加到DOM中</span>
+          <span class="comment">//使用多个loader时， 是从右向左</span>
+        use: [<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>],
+      },
+    ],
+  },
+};
+&lt;!--￼<span class="number">2</span>--&gt;
+</code></pre>
+</li>
+</ul>
+<h4 id="less文件处理-准备工作"><a href="#less文件处理-准备工作" class="headerlink" title="less文件处理-准备工作"></a>less文件处理-准备工作</h4><ul>
+<li><p>安装less-loader：<code>npm install less-loader --save-dev</code></p>
+</li>
+<li><p><strong>webpack.config.js</strong>配置：</p>
+</li>
+<li><pre><code class="javascript"><span class="built_in">module</span>.exports = {
+  ...
+  <span class="built_in">module</span>: {
+    rules: [{
+      test: <span class="regexp">/\.less$/</span>,
+      loader: <span class="string">'less-loader'</span> <span class="comment">// 将 Less 编译为 CSS</span>
+    }]
+  }
+};
+&lt;!--￼<span class="number">3</span>--&gt;
+</code></pre>
+</li>
+</ul>
+<h4 id="css图片引用处理-准备工作"><a href="#css图片引用处理-准备工作" class="headerlink" title="css图片引用处理-准备工作"></a>css图片引用处理-准备工作</h4><ul>
+<li><p>安装url-loader：<code>npm install url-loader --save-dev</code></p>
+</li>
+<li><p><strong>webpack.config.js</strong>配置：</p>
+</li>
+<li><pre><code class="javascript">
+<span class="built_in">module</span>.exports = {
+  entry: <span class="string">'./src/main.js'</span>,
+  output: {
+    <span class="comment">//拼接绝对路径 </span>
+    path: path.resolve(__dirname,<span class="string">'dist'</span>),
+    filename: <span class="string">'bundle.js'</span>
+    <span class="comment">//css图片引用添加 以后涉及到url 都在url前拼接</span>
+    publicPath: <span class="string">'dist/'</span>
+  }
+  <span class="built_in">module</span>: {
+    rules: [
+      {
+        test: <span class="regexp">/\.(png|jpg|gif)$/i</span>,
+        use: [
+          {
+            loader: <span class="string">'url-loader'</span>,
+            options: {
+              limit: <span class="number">8192</span>
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+&lt;!--￼<span class="number">4</span>--&gt;
+</code></pre>
+</li>
+</ul>
+<p><strong>以上仅做记录，实际开发不会这样操作，而是使用vuecli脚手架</strong></p>
+<h4 id="ES6语法处理"><a href="#ES6语法处理" class="headerlink" title="ES6语法处理"></a>ES6语法处理</h4><p>安装：npm install –save-dev babel-loader@7 babel-core babel-preset-es2015</p>
+<p><strong>webpack.config.js</strong>配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.m?js$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">      use: &#123;</span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          presets: [<span class="string">'es21015'</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六-webpack中配置Vue"><a href="#六-webpack中配置Vue" class="headerlink" title="六.webpack中配置Vue"></a>六.webpack中配置Vue</h3><ul>
+<li>安装vue模块：npm install vue –save</li>
+<li>引用：import Vue from ‘vue’</li>
+</ul>
+<h5 id="vue运行时有2个版本："><a href="#vue运行时有2个版本：" class="headerlink" title="vue运行时有2个版本："></a>vue运行时有2个版本：</h5><ol>
+<li>runtime-only：代码中，不可以有任何template</li>
+<li>runtime-compliler：代码中，可以有template，因为有compiler编译template</li>
+</ol>
+<ul>
+<li><p>通过修改webpack配置改变版本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">    alias: &#123;</span><br><span class="line">        <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="真实开发中不会在js文件和index-html文件来回修改"><a href="#真实开发中不会在js文件和index-html文件来回修改" class="headerlink" title="真实开发中不会在js文件和index.html文件来回修改"></a>真实开发中不会在js文件和index.html文件来回修改</h5><ul>
+<li><p>原页面只留<code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+<li><p>app的内容可以放到vue实例的template属性中</p>
+</li>
+<li><pre><code class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;
+<span class="keyword">new</span> Vue({
+    el: <span class="string">'#app'</span>,
+    template: <span class="string">`</span>
+<span class="string">    &lt;div&gt;</span>
+<span class="string">        &lt;h2&gt;{{message}}&lt;/h2&gt;</span>
+<span class="string">    &lt;div&gt;</span>
+<span class="string">    `</span>,
+    data: {
+        message: <span class="string">'hello webpack'</span>
+    }
+});
+&lt;!--￼<span class="number">7</span>--&gt;</code></pre>
+</li>
+<li><p><strong>抽取到外部文件</strong></p>
+</li>
+<li><p>新建一个文件app.js</p>
+</li>
+<li><pre><code class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> {
+    template: <span class="string">`</span>
+<span class="string">    &lt;div&gt;</span>
+<span class="string">        &lt;h2&gt;{{message}}&lt;/h2&gt;</span>
+<span class="string">    &lt;div&gt;</span>
+<span class="string">    `</span>,
+    data(){
+        <span class="keyword">return</span> {
+            message: <span class="string">'hello webpack'</span>
+        }
+    }
+}
+&lt;!--￼<span class="number">8</span>--&gt;</code></pre>
+</li>
+<li><p><strong>模板和js代码进一步分离</strong></p>
+</li>
+<li><p>新建App.vue文件</p>
+</li>
+<li><pre><code class="javascript">&lt;template&gt;
+    &lt;div&gt;
+        &lt;h2 <span class="class"><span class="keyword">class</span></span>=<span class="string">"title"</span>&gt;&lt;!--￼<span class="number">15</span>--&gt;&lt;<span class="regexp">/h2&gt;</span>
+<span class="regexp">    &lt;div&gt;</span>
+<span class="regexp">&lt;/</span>template&gt;
+
+&lt;script&gt;
+    <span class="keyword">export</span> <span class="keyword">default</span> {
+        name: <span class="string">"App"</span>,
+        data(){
+            <span class="keyword">return</span> {
+                message: <span class="string">'hello webpack'</span>
+            }
+        }
+    }
+&lt;<span class="regexp">/script&gt;</span>
+<span class="regexp"></span>
+<span class="regexp">&lt;style&gt;</span>
+<span class="regexp">    .title{</span>
+<span class="regexp">        color: red;</span>
+<span class="regexp">    }</span>
+<span class="regexp">&lt;/</span>style&gt;
+
+&lt;!--￼<span class="number">9</span>--&gt;</code></pre>
+</li>
+<li><p>此时需要安装vue-loader和vue-template-compiler让webpack能对其进行打包</p>
+<p><a href="https://vue-loader.vuejs.org/zh/migrating.html#%E7%8E%B0%E5%9C%A8%E4%BD%A0%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%8F%92%E4%BB%B6" target="_blank" rel="noopener">从 v14 迁移需要安装插件</a></p>
+</li>
+<li><p><code>npm install vue-loader vue-template-compiler --save-dev</code></p>
+</li>
+<li><p>修改webpack.config.js配置文件：</p>
+<ul>
+<li><pre><code class="javas">{
+    test: /\.vue$/,
+    use: [&apos;vue-loader&apos;]
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 七.plugin的使用</span><br><span class="line"></span><br><span class="line">- plugin是什么？</span><br><span class="line">  - plugin是插件的意思，通常是用于某个现有的架构进行扩展。</span><br><span class="line">  - webpack中的插件，就是对webpack现有功能的各种扩展，比如打包优化，文件压缩等等。</span><br><span class="line">- loader和plugin区别</span><br><span class="line">  - loader主要用于转换某些类型的模块，它是一个转换器&#x2F;加载器。</span><br><span class="line">  - plugin是插件，它是对webpack本身的扩展，是一个扩展器。</span><br><span class="line">- plugin的使用过程：</span><br><span class="line">  - 步骤一：通过npm安装需要使用的plugins（某些webpack已经内置的插件不需要安装）</span><br><span class="line">  - 步骤二：在webpack.config.js中的plugins中配置插件</span><br><span class="line"></span><br><span class="line">##### 添加版权Plugin</span><br><span class="line"></span><br><span class="line">修改webpack.config.js文件：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const webpack &#x3D; require(&#39;webpack&#39;);</span><br><span class="line"></span><br><span class="line">module.exports&#x3D;&#123;</span><br><span class="line">    ...</span><br><span class="line">    plugins: [</span><br><span class="line">        new webpack.BannerPlugin(&#39;最终版权归xxx所有&#39;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>然后重新打包即可看到效果</p>
+<h4 id="打包html的plugin"><a href="#打包html的plugin" class="headerlink" title="打包html的plugin"></a>打包html的plugin</h4><ul>
+<li><p>目前，我们的index.html文件是存放在项目根目录下的</p>
+<ul>
+<li>在真实发布项目时，发布的是dist文件夹中内容，但dist文件夹中如果没有idnex.html文件那就没有意义了</li>
+<li>所以我们使用HtmlWebpackPlugin插进将html文件打包到dist文件夹中</li>
+</ul>
+</li>
+<li><p>HtmlWebpackPlugin插件可以为我们做这些事情：</p>
+<ul>
+<li>自动生成一个index.html文件（可以指定模板来生成）</li>
+<li>将打包的js文件，自动通过script标签插入到body中</li>
+</ul>
+</li>
+<li><p>安装HtmlWebpackPlugin插件</p>
+<ul>
+<li>npm install html-webpack-plugin –save-dev</li>
+</ul>
+</li>
+<li><p>使用插件，修改webpack.config.js文件中plugins部分的内容如下：</p>
+<ul>
+<li><p>这里的template表示根据什么模板来生成index.html</p>
+</li>
+<li><p>另外，我们需要删除之前在output中添加的publicPath属性</p>
+</li>
+<li><p>否则插入的script标签src可能会有问题</p>
+</li>
+<li><pre><code class="javascript">plugins: [
+    <span class="keyword">new</span> htmlWebpackPlugin({
+        template: <span class="string">'index.html'</span>
+    }),
+]
+&lt;!--￼<span class="number">11</span>--&gt;</code></pre>
+</li>
+</ul>
+</li>
+<li><p>查看打包后的js文件，是被压缩过的了</p>
+</li>
+<li><p>ps：现在的新版本webpack只需要把模式改成生产模式，就可以自动压缩了</p>
+</li>
+</ul>
+<h3 id="八-搭建本地服务器"><a href="#八-搭建本地服务器" class="headerlink" title="八.搭建本地服务器"></a>八.搭建本地服务器</h3><ul>
+<li><p>webpack提供了一个可选的本地开发服务器，这个本地服务器基于node.js搭建，内部使用express框架，可以实现我们想要的让浏览器自动刷新显示我们修改后的结果</p>
+</li>
+<li><p>不过它是一个单独的模块，在webpack中使用之前需要先安装它</p>
+<ul>
+<li>npm install –save-dev <a href="mailto:webpack-dev-server@2.9.3">webpack-dev-server@2.9.3</a></li>
+</ul>
+</li>
+<li><p>devserver也是作为webpack中的一个选项，选项本身可以设置如下属性：</p>
+<ul>
+<li>contentBase：为哪一个文件夹提供本地服务，默认是根文件夹，我们这里要填写./dist</li>
+<li>port：端口号</li>
+<li>inline：页面实时刷新</li>
+<li>historyApiFallback：在SPA页面中，依赖HTML5的history模式</li>
+</ul>
+</li>
+<li><p>webpack.config.js文件配置修改如下：</p>
+<ul>
+<li><pre><code class="javascript">devServer: {
+    contentBase: <span class="string">'./dist'</span>,
+        inline: <span class="literal">true</span>
+},
+&lt;!--￼<span class="number">12</span>--&gt;
+
+- 然后使用npm run dev</code></pre>
+</li>
+</ul>
+</li>
+<li><p>运行指令(不是全局安装使用npx前缀)：webpack-dev-server</p>
+</li>
+<li><p>运行指令：npx webpack-dev-server</p>
+</li>
+</ul>
+<h3 id="九-配置文件的分离"><a href="#九-配置文件的分离" class="headerlink" title="九.配置文件的分离"></a>九.配置文件的分离</h3><p>使用插件UglifyjsWebpackPlugin()</p>
+
           
             <div class='article_footer'>
               
@@ -513,10 +872,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-16T21:09:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-27T17:50:48+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jan 16, 2021</p>
+    <p>更新于：Jan 27, 2021</p>
   </a>
 </div>
 
@@ -670,7 +1029,7 @@ vue版本：v2.6.12
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Webpack学习笔记"><span class="toc-text">Webpack学习笔记</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一-认识webpack"><span class="toc-text">一.认识webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-webpack的安装"><span class="toc-text">二.webpack的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-webpack的起步"><span class="toc-text">三.webpack的起步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-webpack的配置"><span class="toc-text">四.webpack的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-loader的使用"><span class="toc-text">五.loader的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-webpack中配置Vue"><span class="toc-text">六.webpack中配置Vue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七-plugin的使用"><span class="toc-text">七.plugin的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八-搭建本地服务器"><span class="toc-text">八.搭建本地服务器</span></a>
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Webpack学习笔记"><span class="toc-text">Webpack学习笔记</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一-认识webpack"><span class="toc-text">一.认识webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-webpack的安装"><span class="toc-text">二.webpack的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-webpack的基本使用过程"><span class="toc-text">三.webpack的基本使用过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-webpack的配置"><span class="toc-text">四.webpack的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-配置package-json和webpack-config-js"><span class="toc-text">1.配置package.json和webpack.config.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-loader的使用"><span class="toc-text">五.loader的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是loader？"><span class="toc-text">什么是loader？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css文件处理-准备工作"><span class="toc-text">css文件处理-准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less文件处理-准备工作"><span class="toc-text">less文件处理-准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css图片引用处理-准备工作"><span class="toc-text">css图片引用处理-准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ES6语法处理"><span class="toc-text">ES6语法处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-webpack中配置Vue"><span class="toc-text">六.webpack中配置Vue</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#vue运行时有2个版本："><span class="toc-text">vue运行时有2个版本：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#真实开发中不会在js文件和index-html文件来回修改"><span class="toc-text">真实开发中不会在js文件和index.html文件来回修改</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打包html的plugin"><span class="toc-text">打包html的plugin</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八-搭建本地服务器"><span class="toc-text">八.搭建本地服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九-配置文件的分离"><span class="toc-text">九.配置文件的分离</span></a>
     </div>
   </section>
 
