@@ -4085,7 +4085,7 @@
     <url>/2024/08/18/windows%E9%80%89%E9%A1%B9%E5%BD%B1%E5%93%8DscrollIntoView%E7%9A%84smooth%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C%EF%BC%8CscrollIntoView%E7%9A%84smooth%E6%97%A0%E6%95%88-%E5%A4%B1%E6%95%88/</url>
     <content><![CDATA[<p>问题：项目中scrollIntoView设置了smooth平滑过渡失效。</p>
 <p>解决：是因为调整的windows性能选项导致的。</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/2d8cc6a6b15140ce665a7669fae81881.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><img src="http://qny.bioart.icu/blog/202408181601875.png" alt="2d8cc6a6b15140ce665a7669fae81881"></p>
 <p>如图所示：打开【控制面板】- 搜索【性能】 - 调整 Windows 的外观和性能选项 - 开启【窗口内的动画控件和元素】。</p>
 <p>设置完后点击应用或者确定，恢复平滑过渡效果。</p>
 ]]></content>
