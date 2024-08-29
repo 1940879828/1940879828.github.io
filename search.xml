@@ -4100,11 +4100,16 @@
   <entry>
     <title>区块链基础知识</title>
     <url>/2024/08/29/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h3 id="什么是区块链"><a href="#什么是区块链" class="headerlink" title="什么是区块链"></a>什么是区块链</h3><p>​        比特币 Bitcoin (BTC)：以密码学算法为基础，能够让人们以去中心化的方式，发生非许可的金融行为。<br>​        以太坊 Ethereum (ETH)：除了去中心化的交易，还可以签署去中心化的合同，构建去中心化的组织，以及在不需要中心化中介的情况下，以去中心化的方式进行协作。<br>实际上以太坊的想法是使用比特币中的技术，再加上去中心化的合同，或者叫智能合约(Smart Contract)，区块链或者说是以太坊实现了智能合约的概念。</p>
+    <content><![CDATA[<h3 id="什么是区块链"><a href="#什么是区块链" class="headerlink" title="什么是区块链"></a>什么是区块链</h3><p>比特币 Bitcoin (BTC)：以密码学算法为基础，能够让人们以去中心化的方式，发生非许可的金融行为。</p>
+<p>以太坊 Ethereum (ETH)：除了去中心化的交易，还可以签署去中心化的合同，构建去中心化的组织，以及在不需要中心化中介的情况下，以去中心化的方式进行协作。</p>
+<p>实际上以太坊的想法是使用比特币中的技术，再加上去中心化的合同，或者叫智能合约(Smart Contract)，区块链或者说是以太坊实现了智能合约的概念。</p>
 <blockquote>
-<p>关于智能合约：<br>智能合约是通过去中心化的方式来执行一些列的指令，在这些指令执行中，并不需要中心化或者第三方的中介。<br>Smart Contracts are a set of instructions executed in a decentralized way without the need for a centralized or third parth intermediary.</p>
+<p>关于智能合约：</p>
+<p>智能合约是通过去中心化的方式来执行一些列的指令，在这些指令执行中，并不需要中心化或者第三方的中介。</p>
+<p>Smart Contracts are a set of instructions executed in a decentralized way without the need for a centralized or third parth intermediary.</p>
 </blockquote>
-<p>​        可以把智能合约当成是传统的契约或者合同，不同的是，传统的合同通过笔写在纸上，或者通过word把内容输入进去，而智能合约是代码写的，并且嵌入到一个去中心化的区块链平台。<br>​        智能合约就在这个去中心化区块链平台中被执行，没有第二方第三方去执行，所以智能合约解决了中心化所带来的问题。</p>
+<p>可以把智能合约当成是传统的契约或者合同，不同的是，传统的合同通过笔写在纸上，或者通过word把内容输入进去，而智能合约是代码写的，并且嵌入到一个去中心化的区块链平台。</p>
+<p>智能合约就在这个去中心化区块链平台中被执行，没有第二方第三方去执行，所以智能合约解决了中心化所带来的问题。</p>
 <blockquote>
 <p>中心化存在的问题：</p>
 <ul>
@@ -4115,24 +4120,32 @@
 <li><strong>成本问题</strong>：中心化系统中的中介服务通常需要收取费用，增加了交易成本。智能合约可以减少或消除这些中介费用，降低交易成本。</li>
 </ul>
 </blockquote>
-<p>​        以太坊和比特币最大的不同点就是智能合约，技术上讲，比特币有智能合约，但比特币不是图灵完备的，也就是比特币不能执行一个编程语言的所有的指令。<br>​        比特币的开发者想把比特币作为价值存储，而以太坊开发者在这基础上，还把它当成一个运行去中心化合约的平台。</p>
-<h3 id="以太坊带来的问题-预言机问题-The-Oracle-Problem"><a href="#以太坊带来的问题-预言机问题-The-Oracle-Problem" class="headerlink" title="以太坊带来的问题( 预言机问题 The Oracle Problem )"></a>以太坊带来的问题( 预言机问题 The Oracle Problem )</h3><p>​        如果我想用这些智能合约代替日常使用的合同，就需要真实世界的数据输入，区块链自己没有办法获取真实世界的信息，这就是预言机问题<br>​        智能合约能够获得发生在区块链上的所有信息，但是作为日常合同使用的话，他们需要外部的数据，和外部的计算，而这些就是预言机的作用<br>​        预言机是任何可以向区块链输入数据或者进行链下计算的设备。<br>​        预言机不止一个，所以我们需要组织所有预言机，这就需要一个去中心化的预言机网络，正如去中心化区块链网络一样，你在链上的逻辑是去中心化的，在链上的数据和计算也需要是去中心化的。</p>
-<h3 id="混合型智能合约-Hybrid-Smart-Contracts"><a href="#混合型智能合约-Hybrid-Smart-Contracts" class="headerlink" title="混合型智能合约( Hybrid Smart Contracts )"></a>混合型智能合约( Hybrid Smart Contracts )</h3><p>​        将链上去中心化逻辑和链下去中心化数据和计算相结合，这个东西叫做混合型智能合约，大多数我们现在使用的最流行的协议，都是某种类型的混合型智能合约，或者在某种程度上，与混合型智能合约交互。混合智能合约会用到Chainlink。<br>​        在一般语境中提到混合智能合约的时候，特指哪些有链下组件的智能合约。</p>
-<h3 id="预言机网络-Chainlink"><a href="#预言机网络-Chainlink" class="headerlink" title="预言机网络( Chainlink )"></a>预言机网络( Chainlink )</h3><p>​        Chainlink 是一个组件化，去中心化的预言机网络。Chainlink 不仅可以给智能合约提供外部数据，还可以提供链下计算。<br>​        Chainlink 可以让混合型智能合约，在链上和链下部分都是去中心化的，提供丰富的功能，让智能合约可以像日常合同一样使用。</p>
-<h3 id="去中心化应用"><a href="#去中心化应用" class="headerlink" title="去中心化应用"></a>去中心化应用</h3><p>​        Dapp &#x3D; Decentralized Application &#x3D;去中心化协议 &#x3D; 智能合约应用 &#x3D; 去中心化应用<br>​        去中心化应用通常由多个智能合约组成</p>
-<h3 id="Web3-是一种观点"><a href="#Web3-是一种观点" class="headerlink" title="Web3 是一种观点"></a>Web3 是一种观点</h3><p>​        Web1 指的是一个有着固定内容的非许可的开源网络。（固定内容，无审核）</p>
+<p>以太坊和比特币最大的不同点就是智能合约，技术上讲，比特币有智能合约，但比特币不是图灵完备的，也就是比特币不能执行一个编程语言的所有的指令。</p>
+<p>比特币的开发者想把比特币作为价值存储，而以太坊开发者在这基础上，还把它当成一个运行去中心化合约的平台。</p>
+<h3 id="以太坊带来的问题-预言机问题-The-Oracle-Problem"><a href="#以太坊带来的问题-预言机问题-The-Oracle-Problem" class="headerlink" title="以太坊带来的问题( 预言机问题 The Oracle Problem )"></a>以太坊带来的问题( 预言机问题 The Oracle Problem )</h3><p>如果我想用这些智能合约代替日常使用的合同，就需要真实世界的数据输入，区块链自己没有办法获取真实世界的信息，这就是预言机问题</p>
+<p>智能合约能够获得发生在区块链上的所有信息，但是作为日常合同使用的话，他们需要外部的数据，和外部的计算，而这些就是预言机的作用</p>
+<p>预言机是任何可以向区块链输入数据或者进行链下计算的设备。</p>
+<p>预言机不止一个，所以我们需要组织所有预言机，这就需要一个去中心化的预言机网络，正如去中心化区块链网络一样，你在链上的逻辑是去中心化的，在链上的数据和计算也需要是去中心化的。</p>
+<h3 id="混合型智能合约-Hybrid-Smart-Contracts"><a href="#混合型智能合约-Hybrid-Smart-Contracts" class="headerlink" title="混合型智能合约( Hybrid Smart Contracts )"></a>混合型智能合约( Hybrid Smart Contracts )</h3><p>将链上去中心化逻辑和链下去中心化数据和计算相结合，这个东西叫做混合型智能合约，大多数我们现在使用的最流行的协议，都是某种类型的混合型智能合约，或者在某种程度上，与混合型智能在一般语境中提到混合智能合约的时候，特指哪些有链下组件的智能合约。</p>
+<h3 id="预言机网络-Chainlink"><a href="#预言机网络-Chainlink" class="headerlink" title="预言机网络( Chainlink )"></a>预言机网络( Chainlink )</h3><p>Chainlink 是一个组件化，去中心化的预言机网络。Chainlink 不仅可以给智能合约提供外部数据，还可以提供链下计算。</p>
+<p>Chainlink 可以让混合型智能合约，在链上和链下部分都是去中心化的，提供丰富的功能，让智能合约可以像日常合同一样使用。</p>
+<h3 id="去中心化应用"><a href="#去中心化应用" class="headerlink" title="去中心化应用"></a>去中心化应用</h3><p>Dapp &#x3D; Decentralized Application &#x3D;去中心化协议 &#x3D; 智能合约应用 &#x3D; 去中心化应用</p>
+<p>去中心化应用通常由多个智能合约组成</p>
+<h3 id="Web3-是一种观点"><a href="#Web3-是一种观点" class="headerlink" title="Web3 是一种观点"></a>Web3 是一种观点</h3><p>Web1 指的是一个有着固定内容的非许可的开源网络。（固定内容，无审核）</p>
 <blockquote>
 <p>The permissionless open sourced web with static content.</p>
 </blockquote>
-<p>​        web2 指的是一个有着动态内容的许可网络，你所有的逻辑和协议运行在中心化的服务器上，这些中心化服务器控制着你的信息。（动态内容，有审核）</p>
+<p>web2 指的是一个有着动态内容的许可网络，你所有的逻辑和协议运行在中心化的服务器上，这些中心化服务器控制着你的信息。（动态内容，有审核）</p>
 <blockquote>
 <p>The permissioned web, with dynamic content. Where companies run your agreements on their servers.</p>
 </blockquote>
-<p>​        web3 相比于中心化服务器，去中心化网络运行着你的逻辑，智能合约可以允许你创建无需审核的合同和逻辑，在Web3中，通常伴随着一个概念，即用户拥有他们所使用的协议，也叫拥有者经济。（动态内容，无审核）</p>
+<p>web3 相比于中心化服务器，去中心化网络运行着你的逻辑，智能合约可以允许你创建无需审核的合同和逻辑，在Web3中，通常伴随着一个概念，即用户拥有他们所使用的协议，也叫拥有者经济。（动态内容，无审核）</p>
 <blockquote>
 <p> The permissionless web, with dynamic content. Where decentralized censorship resistant networks run your agreement and code. It generally is accompanied by the idea of user owned ecosystems, where the protocols you interact with you also own a portion of, instead of relying on centralized entities for control and governance.  </p>
 </blockquote>
-<p>​        最简单总结智能合约做了什么：智能合约创建了信任最小化协议（Trust Minimized Agreements）。<br>​        也可以说，智能合约创建不可违背的承诺（Unbreakable Promises）。<br>​        那么他们具体能干什么？智能合约到底意味着什么？最小化信任机制和不可违背的承诺是什么事意思？智能合约真正的价值是什么？</p>
+<p>最简单总结智能合约做了什么：智能合约创建了信任最小化协议（Trust Minimized Agreements）。</p>
+<p>也可以说，智能合约创建不可违背的承诺（Unbreakable Promises）。</p>
+<p>那么他们具体能干什么？智能合约到底意味着什么？最小化信任机制和不可违背的承诺是什么事意思？智能合约真正的价值是什么？</p>
 ]]></content>
       <categories>
         <category>Web3</category>
