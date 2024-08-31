@@ -4078,6 +4078,7 @@
       <tags>
         <tag>windows</tag>
         <tag>音频</tag>
+        <tag>问题</tag>
       </tags>
   </entry>
   <entry>
@@ -4095,6 +4096,7 @@
       <tags>
         <tag>Js</tag>
         <tag>windows</tag>
+        <tag>问题</tag>
       </tags>
   </entry>
   <entry>
@@ -4287,6 +4289,83 @@
       </categories>
       <tags>
         <tag>Web3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>区块链的运作机制</title>
+    <url>/2024/08/31/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E8%BF%90%E4%BD%9C%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h3 id="哈希算法的概念"><a href="#哈希算法的概念" class="headerlink" title="哈希算法的概念"></a>哈希算法的概念</h3><p>了解运作机制之前要先了解哈希算法</p>
+<p>哈希算法它是一种单向密码体制，即它是一个从明文到密文的不可逆的映射，只有加密过程，没有解密过程。一般把哈希算法得出来的结果称为哈希Hash</p>
+<p>哈希Hash是一个独一无二的固定长度字符串，用来代表一段数据，它通过将一个数据传入”哈希函数”来生成。生成哈希的函数有很多种，比如常见的SHA256，以太坊使用的是Keccak256算法</p>
+<h3 id="区块的矿工的作用"><a href="#区块的矿工的作用" class="headerlink" title="区块的矿工的作用"></a>区块的矿工的作用</h3><p>区块的示例网站：<a href="https://andersbrownworth.com/blockchain/block">Blockchain Demo (andersbrownworth.com)</a></p>
+<p><img src="http://qny.bioart.icu/blog/202408311542165.png" alt="image-20240831154232099"></p>
+<p>在区块中我们把数据分块</p>
+<ul>
+<li>Block 区块</li>
+<li>Nonce 随机数</li>
+<li>Data 数据：在实际BTC系统里，Data域就是body，里面有交易树结构</li>
+</ul>
+<p>我们会把这3部分都进行哈希运算，得到哈希值。</p>
+<p>而“矿工”的工作其实是解题，一道填空题，挖矿的时候，矿工会收到一道题目，图中的区块和数据是固定的而哈希是目标，随机数是答案。因为哈希是单向的，你只能通过穷举去穷举随机数Nonce的值，穷举到了这个随机数，也就是72608后，发现哈希值与目标哈希一致，那么这道题就解出来了，答案是72608。</p>
+<p>这就是矿工的作用，不断计算找到Nonce，而这个Nonce可以解决对于的 “难题”，在这里是Hash。而解题其实是靠“碰运气的”。</p>
+<blockquote>
+<p>Hash开头的0越多，找到解的概率越小，挖矿难度越大。</p>
+<p>这是因为哈希函数的输出是均匀分布的，也就是说在所有可能的哈希值中，任何特定的输出值（如以0开头）出现的概率是极低的。</p>
+</blockquote>
+<h3 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h3><p>在上面的例子我们能理解单独区块，如果有很多个区块呢？</p>
+<p>区块链的示例网站：<a href="https://andersbrownworth.com/blockchain/blockchain">Blockchain Demo (andersbrownworth.com)</a></p>
+<p><img src="http://qny.bioart.icu/blog/202408311556780.png" alt="image-20240831155610678"></p>
+<p>在区块链中多了属性 前指针 Prev:</p>
+<ul>
+<li>Prev 前指针：指向上一个区块的哈希值</li>
+</ul>
+<p>观察图中的Prev可以发现，区块3的前指针指向区块2的哈希，区块2的前指针指向区块1的哈希，而第一个区块1的前指针则全为0，像一个链表一样，这就是区块链。</p>
+<p>第一个区块也被称为创世区块（Genesis Block），也就是区块链中的第一个区块，它的Prev指向一个不存在的区块。</p>
+<p>而在区块链中Hash计算时要的输入要包含前指针Prev，也就是说，要是你改变了区块2的Data，那么区块2后面的所有区块都会变红，意味着他们都无效了</p>
+<p>这就是区块链实现“无法篡改”的方式。只要你改了一个区块上的内容，会让后面的区块都无效。</p>
+<p>当然你可以重新从修改的区块开始计算，然后把后面的都挖或者说计算出来，但是挖这些区块需要很大的计算量，因为需要重新挖整个区块链的区块，你修改的区块越靠前，重新哈希运算的难度就越大。所以说区块链的历史数据很难被篡改。但还是会有被重新挖的可能，不是吗？那这里就是去中心化或者说分布式的特性发挥作用的时候了。</p>
+<h3 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h3><p>分布式的示例网站：<a href="https://andersbrownworth.com/blockchain/distributed">Blockchain Demo (andersbrownworth.com)</a></p>
+<p><img src="http://qny.bioart.icu/blog/202408311609197.png" alt="image-20240831160928118"></p>
+<p>可以看到我们现在有很多个节点（Peer），很多人提到的P2P就是这里的Peer的概念，不同的节点（Peer）都在运行这个区块链，他们的权重相同，区块链中的每一个Peer，节点或者说运营主体都有这相同的权力，决定那条链才是正确的链的方法非常简单</p>
+<p>那就是比较最后一个哈希值，因为哈希运算是“单向的”，最后一个区块的哈希值依赖上一个区块，所以最后一个区块的哈希值，包含了前面所有区块的信息。</p>
+<p>现在如果你想对区块链历史动手脚重新挖矿，计算到最后一个哈希的数据，比如修改Peer A的数据，最后一个区块的数据与Peer B和Peer C必定不一样，那Peer A实际上分叉出了一条区块链，记录它自己的历史数据。</p>
+<p>在分布式中每个人都是监督者，而这里又能牵扯到最长链有效原则，其他节点不需要重头开始挖矿，接着合法链继续往后挖即可。</p>
+<p>这就绝对安全了吗？也不是，在这个3节点的网络中，只要Peer A 说服另外2个中的一个Peer，跟他一起修改历史数据并重新挖矿（这就是代价），那么最后会发生什么，少数服从多数，这种情况下Peer A的阴谋诡计就成功了，真的修改了历史的数据。也就是大家说的区块链的51%攻击，只要大于50%的链历史被修改，那假的也会变成真的（人多力量大（雾）），但是假如你都有51%的节点权力了，那你为什么要捣乱。</p>
+<p>在真实链中Data部分存储的是交易信息，捣乱就是为了搞钱嘛，都能动用51%的节点了，还会缺钱（Ps：也说不准吼）？毕竟重新算51%成本也是非常高的。</p>
+<blockquote>
+<p> Data替换为交易信息的示例： <a href="https://andersbrownworth.com/blockchain/tokens">Blockchain Demo (andersbrownworth.com)</a></p>
+</blockquote>
+<p>当然这只是一个示例，区块链其实是通过Solidity代码运行的，而非将随机值放在Data区域，Solidity代码定义了链上不同区块和协议交互方式，实际挖矿的时候难度也要大得多, Hash前面至少10几个零</p>
+<h4 id="关于哈希碰撞"><a href="#关于哈希碰撞" class="headerlink" title="关于哈希碰撞"></a>关于哈希碰撞</h4><p>我们知道哈希是单向计算的，固定的字符压缩经过算法得到固定的哈希，有没有可能出现像<code>md5彩虹表</code>的情况呢，就是说我输入的数据不一样，但是哈希函数返回的哈希值是一样的，这种想要人为的进行哈希碰撞的想法，以现在的技术，几乎不可能实现。</p>
+<blockquote>
+<p><strong>碰撞代表特殊性</strong>：哈希碰撞代表着多个输入映射到同一个输出，这是在极高熵的系统中形成的一种有序状态。然而，这种有序状态非常罕见，因为理想的哈希函数旨在最大化熵，使得输出尽可能随机。</p>
+<p><strong>概率极低</strong>：由于哈希函数的输出空间非常大（例如，SHA-256的输出空间有 2的256次方 种可能性），在这个巨大的空间中，随便选取两个输入而产生相同哈希值的概率极低。要想通过人为的方法刻意找到两个不同的输入导致相同的哈希值，所需的计算量和尝试次数是天文数字。</p>
+<p>哈希碰撞作为一种熵减行为，意味着系统从高熵、高随机性状态转向一个极其低概率的有序状态。由于现代哈希函数的设计旨在最大化熵和抗碰撞性，试图通过人为干预来制造碰撞所需的计算资源和时间代价巨大，几乎不可能实现。因此，在实际应用中，哈希碰撞极难人为制造。</p>
+</blockquote>
+<p>你可能会问个问题，怎么确定交易确实是由某个人发出的，这里我们就需要了解公钥和私钥等关于签名交易（Signing Transactions）的内容</p>
+]]></content>
+      <categories>
+        <category>Web3</category>
+      </categories>
+      <tags>
+        <tag>Web3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序scroll-view的scroll-into-view定位在安卓和模拟器中正常在ios中定位错误乱跳</title>
+    <url>/2024/08/31/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fscroll-view%E7%9A%84scroll-into-view%E5%AE%9A%E4%BD%8D%E5%9C%A8%E5%AE%89%E5%8D%93%E5%92%8C%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%AD%E6%AD%A3%E5%B8%B8%E5%9C%A8ios%E4%B8%AD%E5%AE%9A%E4%BD%8D%E9%94%99%E8%AF%AF%E4%B9%B1%E8%B7%B3/</url>
+    <content><![CDATA[<p>需求是一进入页面就要执行scroll让页面滚动到对应位置。</p>
+<p>原因是元素未渲染完成获取不到id导致定位错误</p>
+<p>解决办法是：设置延迟时间等待元素加载完就可以了</p>
+<p><img src="http://qny.bioart.icu/blog/202408311154158.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
 </search>
