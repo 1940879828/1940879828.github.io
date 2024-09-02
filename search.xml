@@ -4368,4 +4368,164 @@
         <tag>微信小程序</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ETH交易详情解析</title>
+    <url>/2024/09/02/%E5%8C%BA%E5%9D%97%E5%A5%96%E5%8A%B1-EIP1559/</url>
+    <content><![CDATA[<p><img src="http://qny.bioart.icu/blog/202409020928650.png" alt="image-20240902092823522"></p>
+<ul>
+<li><p>Transaction Hash: 一个独一无二的交易哈希，代表该区块链上的该笔交易</p>
+</li>
+<li><p>Status: 交易的状态 Success 或者 Fail</p>
+</li>
+<li><p>Block: 被确认的区块高度（区块链的一种“长度”或“深度”）</p>
+<ul>
+<li>16896 Block Confirmations: 意味着在交易所在的那个区块之后，已经有16个新的区块被添加到区块链中。确认次数越多，交易被篡改或回滚的可能性就越低。</li>
+</ul>
+</li>
+<li><p>Timestamp: 交易发生的时间</p>
+</li>
+<li><p>From: 发送方</p>
+</li>
+<li><p>To: 接收方 </p>
+</li>
+<li><p>Value: 发送了多少ETH</p>
+</li>
+<li><p>Transaction Fee: 本次交易所花费的手续费 （Base fee per gas + Max Priority fee per gas）* gas</p>
+</li>
+<li><p>Gas Price: Gas的费用</p>
+</li>
+<li><p>Gas Limit &amp; Usage by Txn: 限制使用多少Gas（愿意为这次交易付出的最大Gas） 和 实际使用了的Gas</p>
+</li>
+<li><p>Gas Fees</p>
+<ul>
+<li>Base：网络为每个区块动态调整的最低费用，用于确保交易在区块链上的处理。它由网络自动设定，随着网络拥堵程度的变化而变化。Base Fee 会被销毁（Burnt），而不是支付给矿工。这是 EIP-1559 的一个关键特性，旨在减少以太坊的供应量。</li>
+<li>Max：用户愿意为交易支付的每单位 Gas 的最高费用上限。它包括 Base Fee 和矿工小费（Priority Fee）。用户设置的 Max Fee 确保即使网络拥堵导致 Base Fee 上升，交易仍然可以被处理。</li>
+<li>Max Priority：用户额外愿意支付给矿工的小费，以激励矿工优先处理他们的交易。这部分费用会直接支付给矿工，而不是销毁。在这个例子中，Max Priority Fee 与 Max Fee 相同，都是 258.439166264 Gwei，这意味着用户愿意为快速处理交易付出较高的费用。</li>
+</ul>
+</li>
+<li><p>Burnt &amp; Txn Savings Fees</p>
+<ul>
+<li>Burnt：被烧掉的ETH</li>
+<li>Txn Savings Fees：用户设定的最大费用（Max Fee）与实际支付的费用之间的差额。这个差额代表了用户节省下来的部分费用</li>
+</ul>
+</li>
+<li><p>Other Attributes</p>
+<ul>
+<li>Txn Type: <strong>Txn Type</strong> 表示交易的类型。<code>2</code> 代表的是 EIP-1559 交易。在以太坊网络中，EIP-1559 引入了新的交易类型（Type 2），这种交易类型包括 Base Fee 和 Max Fee 的机制，与之前的非 EIP-1559 交易（Type 0）不同。Type 2 交易可以动态调整费用，避免用户过度支付交易费用。</li>
+<li>Nonce: <strong>Nonce</strong> 是一个唯一的编号，用于标识一个账户在以太坊网络中发送的每一笔交易。每当一个账户发起一笔新的交易时，Nonce 值会增加 1。这个值对于防止“双重支付”至关重要，因为它确保每个交易在区块链中都是唯一的，不会被重复处理。在这个例子中，Nonce 值为 <code>1230500</code>，这意味着这是该账户发起的第 1,230,501 笔交易。</li>
+<li>Position In Block: <strong>Position In Block</strong> 表示该交易在区块中的位置，通常是指该交易在被打包进区块时的排序位置。值为 <code>0</code> 表示这笔交易是该区块中被处理的第一笔交易。在一个区块中，交易的位置可能会影响到它的执行顺序，进而可能影响交易的结果，尤其是在多个交易试图修改同一状态时。</li>
+</ul>
+</li>
+<li><p>Input Data: 因为这个交易是发送以太币，所以输入数据是空的。当我们使用智能合约时就不是空的了</p>
+</li>
+</ul>
+<blockquote>
+<p>“Txn” 是 “Transaction” 的缩写。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Web3</category>
+      </categories>
+      <tags>
+        <tag>Web3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>签名交易 Signature transaction</title>
+    <url>/2024/08/31/%E7%AD%BE%E5%90%8D%E4%BA%A4%E6%98%93%20Signature%20transaction/</url>
+    <content><![CDATA[<p>本文讨论一下签名交易，私钥和其他密码学知识。</p>
+<p><a href="https://andersbrownworth.com/blockchain/tokens">Blockchain Demo (andersbrownworth.com)</a></p>
+<p><img src="http://qny.bioart.icu/blog/202408311648782.png" alt="image-20240831164854709"></p>
+<p>什么如何确定图中区块1的交易信息中第一条，Darcy真的给Bingley发了25元呢？也就是怎么知道这个交易真的发生了呢？</p>
+<p>我们需要了解私钥和公钥 &amp; 他们是怎么验证的</p>
+<p>示例网站</p>
+<p><a href="https://andersbrownworth.com/blockchain/public-private-keys/keys">Blockchain Demo: Public &#x2F; Private Keys &amp; Signing (andersbrownworth.com)</a></p>
+<p><img src="http://qny.bioart.icu/blog/202409020846712.png" alt="image-20240902084656678"></p>
+<p>上图中，私钥会通过ECDSA算法，比特币和以太坊都使用这个算法，它是DSA（电子签名算法）的一种，它可以根据私钥创建出公钥，想了解DSA算法可以b站看技术蛋老师的ecc算法。</p>
+<p>在交易中，我会像密码一样使用私钥，对交易进行电子签名，然后别人可以通过公钥来验证这个签名的交易。</p>
+<p>让我们演示一下，接下来到<a href="https://andersbrownworth.com/blockchain/public-private-keys/signatures">Blockchain Demo: Public &#x2F; Private Keys &amp; Signing (andersbrownworth.com)</a>页面，进行签名和验证的操作。</p>
+<p><img src="http://qny.bioart.icu/blog/202409020851288.png" alt="image-20240902085151248"></p>
+<p>message是你想要对其签名的数据，输入数据后点击签名Sign按钮，跟哈希生成的逻辑类似，我们使用这个签名算法把message和Private Key组合并使用ECDSA算法生成Message Signature，这个签名算法的强大之处在于你可以使用私钥创建信息签名，但是别人不能从信息签名中得到你的私钥。</p>
+<p>我们为什么要这样做，这在Verify页面可以得到答案。</p>
+<p><img src="http://qny.bioart.icu/blog/202409020856178.png" alt="image-20240902085644134"></p>
+<p>当Message 被签名数据 和 Public Key 公钥 和 根据私钥和数据生成的Message Signature 一致的时候，验证会通过，当验证通过的时候，别人就知道这个东西是你发布的而不是其他什么人发布的</p>
+<p>流程是 你用私钥(不能给别人看的) 加密数据 生成加密签名，别人通过加密签名、你公布的公钥和数据来验证这个内容是否是你发布的。所以这是一个身份认证机制，让别人知道这个交易是你发起的。这是密码学非对称加密的内容，想了解更多可以去b站搜视频。</p>
+<p>一样的逻辑 我们把数据部分换成交易信息，<a href="https://andersbrownworth.com/blockchain/public-private-keys/transaction">Blockchain Demo: Public &#x2F; Private Keys &amp; Signing (andersbrownworth.com)</a></p>
+<p><img src="http://qny.bioart.icu/blog/202409020903504.png" alt="image-20240902090349469"></p>
+<p>我们就能知道，这个交易是由谁发起的</p>
+<p>在这个过程中私钥是非常私密的，一旦有人获得了你的私钥，他们就可以代替你对交易进行签名，发送交易</p>
+<blockquote>
+<p>以太坊的地址是公钥衍生出来的</p>
+</blockquote>
+<p>这个单向算法本身就是大家知道的，只不过私钥能签名公钥，但是公钥无法反推私钥，只能验证</p>
+]]></content>
+      <categories>
+        <category>Web3</category>
+      </categories>
+      <tags>
+        <tag>Web3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ETH交易详情解析</title>
+    <url>/2024/09/02/ETH%E4%BA%A4%E6%98%93%E8%AF%A6%E6%83%85%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p><img src="http://qny.bioart.icu/blog/202409020928650.png" alt="image-20240902092823522"></p>
+<ul>
+<li><p>Transaction Hash: 一个独一无二的交易哈希，代表该区块链上的该笔交易</p>
+</li>
+<li><p>Status: 交易的状态 Success 或者 Fail</p>
+</li>
+<li><p>Block: 被确认的区块高度（区块链的一种“长度”或“深度”）</p>
+<ul>
+<li>16896 Block Confirmations: 意味着在交易所在的那个区块之后，已经有16个新的区块被添加到区块链中。确认次数越多，交易被篡改或回滚的可能性就越低。</li>
+</ul>
+</li>
+<li><p>Timestamp: 交易发生的时间</p>
+</li>
+<li><p>From: 发送方</p>
+</li>
+<li><p>To: 接收方 </p>
+</li>
+<li><p>Value: 发送了多少ETH</p>
+</li>
+<li><p>Transaction Fee: 本次交易所花费的手续费 （Base fee per gas + Max Priority fee per gas）* gas</p>
+</li>
+<li><p>Gas Price: Gas的费用</p>
+</li>
+<li><p>Gas Limit &amp; Usage by Txn: 限制使用多少Gas（愿意为这次交易付出的最大Gas） 和 实际使用了的Gas</p>
+</li>
+<li><p>Gas Fees</p>
+<ul>
+<li>Base：网络为每个区块动态调整的最低费用，用于确保交易在区块链上的处理。它由网络自动设定，随着网络拥堵程度的变化而变化。Base Fee 会被销毁（Burnt），而不是支付给矿工。这是 EIP-1559 的一个关键特性，旨在减少以太坊的供应量。</li>
+<li>Max：用户愿意为交易支付的每单位 Gas 的最高费用上限。它包括 Base Fee 和矿工小费（Priority Fee）。用户设置的 Max Fee 确保即使网络拥堵导致 Base Fee 上升，交易仍然可以被处理。</li>
+<li>Max Priority：用户额外愿意支付给矿工的小费，以激励矿工优先处理他们的交易。这部分费用会直接支付给矿工，而不是销毁。在这个例子中，Max Priority Fee 与 Max Fee 相同，都是 258.439166264 Gwei，这意味着用户愿意为快速处理交易付出较高的费用。</li>
+</ul>
+</li>
+<li><p>Burnt &amp; Txn Savings Fees</p>
+<ul>
+<li>Burnt：被烧掉的ETH</li>
+<li>Txn Savings Fees：用户设定的最大费用（Max Fee）与实际支付的费用之间的差额。这个差额代表了用户节省下来的部分费用</li>
+</ul>
+</li>
+<li><p>Other Attributes</p>
+<ul>
+<li>Txn Type: <strong>Txn Type</strong> 表示交易的类型。<code>2</code> 代表的是 EIP-1559 交易。在以太坊网络中，EIP-1559 引入了新的交易类型（Type 2），这种交易类型包括 Base Fee 和 Max Fee 的机制，与之前的非 EIP-1559 交易（Type 0）不同。Type 2 交易可以动态调整费用，避免用户过度支付交易费用。</li>
+<li>Nonce: <strong>Nonce</strong> 是一个唯一的编号，用于标识一个账户在以太坊网络中发送的每一笔交易。每当一个账户发起一笔新的交易时，Nonce 值会增加 1。这个值对于防止“双重支付”至关重要，因为它确保每个交易在区块链中都是唯一的，不会被重复处理。在这个例子中，Nonce 值为 <code>1230500</code>，这意味着这是该账户发起的第 1,230,501 笔交易。</li>
+<li>Position In Block: <strong>Position In Block</strong> 表示该交易在区块中的位置，通常是指该交易在被打包进区块时的排序位置。值为 <code>0</code> 表示这笔交易是该区块中被处理的第一笔交易。在一个区块中，交易的位置可能会影响到它的执行顺序，进而可能影响交易的结果，尤其是在多个交易试图修改同一状态时。</li>
+</ul>
+</li>
+<li><p>Input Data: 因为这个交易是发送以太币，所以输入数据是空的。当我们使用智能合约时就不是空的了</p>
+</li>
+</ul>
+<blockquote>
+<p>“Txn” 是 “Transaction” 的缩写。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Web3</category>
+      </categories>
+      <tags>
+        <tag>Web3</tag>
+      </tags>
+  </entry>
 </search>
